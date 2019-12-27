@@ -1,0 +1,32 @@
+/*初始样式 start*/
+html, body{
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+/*初始样式 end*/
+
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸 start*/
+&::-webkit-scrollbar
+{
+    width: 8px;
+    height: 8px;
+    background-color: #fff;
+}
+/*定义滚动条轨道 内阴影+圆角*/
+&::-webkit-scrollbar-track
+{
+    box-shadow: inset 0 0 6px #DCDCDC;
+    border-radius: 4px;
+    background-color: #fff;
+}
+/*定义滑块 内阴影+圆角*/
+&::-webkit-scrollbar-thumb
+{
+    border-radius: 4px;
+    box-shadow: inset 0 0 6px #DCDCDC;
+    background-color: #DCDCDC;
+}
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸 end*/
