@@ -5,7 +5,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const HtmlWebpackPlugin = require( 'html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const isDev = process.env.NODE_ENV === 'development';
 
@@ -30,11 +30,27 @@ const config = {
             },
             {
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader']
+                use: [
+                    "style-loader",
+                    {
+                        loader: "css-loader",
+                        options: { sourceMap: true }
+                    },
+                ]
             },
             {
                 test: /\.less$/,
-                use: ['style-loader', 'css-loader','less-loader']
+                use: [
+                    "style-loader",
+                    {
+                        loader: "css-loader",
+                        options: { sourceMap: true }
+                    },
+                    {
+                        loader: "less-loader",
+                        options: { sourceMap: true }
+                    },
+                ]
             },
         ]
     },
@@ -51,7 +67,7 @@ const config = {
             warnings: false,
         }
     },
-    
+
     plugins: [
         new webpack.DefinePlugin({
             'process.env': {
@@ -77,7 +93,7 @@ const config = {
             hash: true,
             template: path.resolve(__dirname, 'public/index.html'),
             inject: true,
-          }),
+        }),
     ],
 };
 
